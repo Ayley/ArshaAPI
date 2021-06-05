@@ -1,29 +1,27 @@
 import me.kleidukos.arsha.ArshaIO;
 import me.kleidukos.arsha.http.HttpLinkBuilder;
+import me.kleidukos.arsha.models.v2.HistoryItem;
 import me.kleidukos.arsha.models.v2.Item;
+import me.kleidukos.arsha.models.v2.OrderItem;
 import me.kleidukos.arsha.util.*;
 
 import java.net.URISyntaxException;
 
 public class Test {
 
-    public static void main(String[] args) throws URISyntaxException {
+    public static void main(String[] args) {
         ArshaIO arshaIO = new ArshaIO();
 
-        HttpLinkBuilder builder = new HttpLinkBuilder(ApiVersion.V2, Region.EU, RequestType.ITEM);
+        HttpLinkBuilder builder = new HttpLinkBuilder(ApiVersion.V2, Region.EU, RequestType.HISTORY);
 
-        builder.setId(5003).setLanguage(Language.DE).setSid(10);
+        builder.setId(10007).setLanguage(Language.DE).setSid(10);
 
         String result = arshaIO.getApi().request(builder);
 
         System.out.println(result);
 
-        Item[] items = arshaIO.getParser().parseFromJson(result, Item[].class);
+        HistoryItem items = arshaIO.getParser().parseFromJson(result, HistoryItem.class);
 
-        for(Item item : items){
-            System.out.println(item.toString());
-        }
-
+        System.out.println(items);
     }
-
 }

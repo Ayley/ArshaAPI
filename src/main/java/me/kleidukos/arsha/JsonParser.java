@@ -1,18 +1,22 @@
 package me.kleidukos.arsha;
-
-import com.google.gson.Gson;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import me.kleidukos.arsha.util.IJsonParser;
+
+import java.io.IOException;
 
 class JsonParser implements IJsonParser {
 
-    private Gson gson;
+    private final ObjectMapper mapper;
 
-    public JsonParser(Gson gson){
-        this.gson = gson;
+    public JsonParser(ObjectMapper mapper){
+        this.mapper = mapper;
     }
 
-    public <T> T parseFromJson(String response, Class<T> type){
-        return gson.fromJson(response, type);
+    public final <T> T parseFromJson(String response, Class<T> type){
+        try {
+            return mapper.readValue(response, type);
+        } catch (IOException e) {
+            return null;
+        }
     }
-
 }

@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.util.stream.Collectors;
 
-final class HttpRequest implements IHttpRequest {
+ final class HttpRequest implements IHttpRequest {
 
     public String request(String link) {
         try (CloseableHttpClient client = HttpClients.createDefault()){

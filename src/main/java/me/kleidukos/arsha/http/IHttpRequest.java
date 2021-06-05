@@ -1,6 +1,6 @@
 package me.kleidukos.arsha.http;
 
-public interface IHttpRequest {
+public interface IHttpRequest{
 
     public String request(String link);
 
