@@ -13,7 +13,7 @@ public enum RequestType {
     GET_BIDDING_INFO_LIST("GetBiddingInfoList"),
     GET_MARKET_PRICE_INFO("GetMarketPriceInfo");
 
-    private String parameterName;
+    private final String parameterName;
 
     RequestType(String parameterName){
         this.parameterName = parameterName;

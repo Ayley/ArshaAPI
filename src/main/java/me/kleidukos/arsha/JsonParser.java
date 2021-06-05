@@ -4,15 +4,9 @@ import me.kleidukos.arsha.util.IJsonParser;
 
 import java.io.IOException;
 
-class JsonParser implements IJsonParser {
+record JsonParser(ObjectMapper mapper) implements IJsonParser {
 
-    private final ObjectMapper mapper;
-
-    public JsonParser(ObjectMapper mapper){
-        this.mapper = mapper;
-    }
-
-    public final <T> T parseFromJson(String response, Class<T> type){
+    public final <T> T parseFromJson(String response, Class<T> type) {
         try {
             return mapper.readValue(response, type);
         } catch (IOException e) {

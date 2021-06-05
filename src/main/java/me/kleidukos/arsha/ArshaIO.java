@@ -1,7 +1,6 @@
 package me.kleidukos.arsha;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 import me.kleidukos.arsha.http.IHttpRequest;
 import me.kleidukos.arsha.util.IJsonParser;
 

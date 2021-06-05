@@ -1,11 +1,10 @@
 import me.kleidukos.arsha.ArshaIO;
 import me.kleidukos.arsha.http.HttpLinkBuilder;
 import me.kleidukos.arsha.models.v2.HistoryItem;
-import me.kleidukos.arsha.models.v2.Item;
-import me.kleidukos.arsha.models.v2.OrderItem;
-import me.kleidukos.arsha.util.*;
-
-import java.net.URISyntaxException;
+import me.kleidukos.arsha.util.ApiVersion;
+import me.kleidukos.arsha.util.Language;
+import me.kleidukos.arsha.util.Region;
+import me.kleidukos.arsha.util.RequestType;
 
 public class Test {
 

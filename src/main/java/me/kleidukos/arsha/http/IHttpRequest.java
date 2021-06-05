@@ -2,7 +2,7 @@ package me.kleidukos.arsha.http;
 
 public interface IHttpRequest{
 
-    public String request(String link);
+    String request(String link);
 
-    public String request(HttpLinkBuilder builder);
+    String request(HttpLinkBuilder builder);
 }
