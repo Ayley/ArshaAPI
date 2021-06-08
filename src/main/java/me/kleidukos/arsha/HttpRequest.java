@@ -9,11 +9,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URISyntaxException;
-import java.util.stream.Collectors;
 
  final class HttpRequest implements IHttpRequest {
 
@@ -23,7 +20,7 @@ import java.util.stream.Collectors;
             try (CloseableHttpResponse response = client.execute(get)){
                 HttpEntity entity = response.getEntity();
 
-                String result = new BufferedReader(new InputStreamReader(entity.getContent())).lines().collect(Collectors.joining("\n"));
+                String result = EntityUtils.toString(entity);
 
                 EntityUtils.consume(entity);
 
@@ -48,7 +45,7 @@ import java.util.stream.Collectors;
             try (CloseableHttpResponse response = client.execute(get)){
                 HttpEntity entity = response.getEntity();
 
-                String result = new BufferedReader(new InputStreamReader(entity.getContent())).lines().collect(Collectors.joining("\n"));
+                String result = EntityUtils.toString(entity);
 
                 EntityUtils.consume(entity);
 
