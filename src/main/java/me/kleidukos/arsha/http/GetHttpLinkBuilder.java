@@ -5,7 +5,7 @@ import me.kleidukos.arsha.util.Language;
 import me.kleidukos.arsha.util.Region;
 import me.kleidukos.arsha.util.RequestType;
 
-public class HttpLinkBuilder {
+public class GetHttpLinkBuilder {
 
     private String link;
     private int id = -1;
@@ -14,7 +14,7 @@ public class HttpLinkBuilder {
     private int subCategory = -1;
     private Language language;
 
-    public HttpLinkBuilder(ApiVersion version, Region region, RequestType type){
+    public GetHttpLinkBuilder(ApiVersion version, Region region, RequestType type){
         link = createBaseLink(version, region, type);
     }
 
@@ -26,27 +26,27 @@ public class HttpLinkBuilder {
         return "https://api.arsha.io/" + v + "/" + rg + "/" + t;
     }
 
-    public HttpLinkBuilder setId(int id) {
+    public GetHttpLinkBuilder setId(int id) {
         this.id = id;
         return this;
     }
 
-    public HttpLinkBuilder setSid(int sid) {
+    public GetHttpLinkBuilder setSid(int sid) {
         this.sid = sid;
         return this;
     }
 
-    public HttpLinkBuilder setMainCategory(int mainCategory) {
+    public GetHttpLinkBuilder setMainCategory(int mainCategory) {
         this.mainCategory = mainCategory;
         return this;
     }
 
-    public HttpLinkBuilder setSubCategory(int subCategory) {
+    public GetHttpLinkBuilder setSubCategory(int subCategory) {
         this.subCategory = subCategory;
         return this;
     }
 
-    public HttpLinkBuilder setLanguage(Language language) {
+    public GetHttpLinkBuilder setLanguage(Language language) {
         this.language = language;
         return this;
     }

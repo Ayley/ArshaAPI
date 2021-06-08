@@ -1,5 +1,6 @@
 import me.kleidukos.arsha.ArshaIO;
-import me.kleidukos.arsha.http.HttpLinkBuilder;
+import me.kleidukos.arsha.http.GetHttpLinkBuilder;
+import me.kleidukos.arsha.http.PostHttpLinkBuilder;
 import me.kleidukos.arsha.models.v2.HistoryItem;
 import me.kleidukos.arsha.util.ApiVersion;
 import me.kleidukos.arsha.util.Language;
@@ -11,15 +12,21 @@ public class Test {
     public static void main(String[] args) {
         ArshaIO arshaIO = new ArshaIO();
 
-        HttpLinkBuilder builder = new HttpLinkBuilder(ApiVersion.V2, Region.EU, RequestType.HISTORY);
+        GetHttpLinkBuilder getBuilder = new GetHttpLinkBuilder(ApiVersion.V2, Region.EU, RequestType.HISTORY);
 
-        builder.setId(10007).setLanguage(Language.DE).setSid(10);
+        getBuilder.setId(10007).setLanguage(Language.DE).setSid(10);
 
-        String result = arshaIO.getApi().request(builder);
+        String getResult = arshaIO.getApi().getRequest(getBuilder);
 
-        System.out.println(result);
+        PostHttpLinkBuilder postBuilder = new PostHttpLinkBuilder(ApiVersion.V2, Region.EU, RequestType.HISTORY);
 
-        HistoryItem items = arshaIO.getParser().parseFromJson(result, HistoryItem.class);
+        postBuilder.setId(10007).setSid(10);
+
+        String postResult = arshaIO.getApi().postRequest(postBuilder);
+
+        System.out.println(getResult);
+
+        HistoryItem items = arshaIO.getParser().parseFromJson(postResult, HistoryItem.class);
 
         System.out.println(items);
     }

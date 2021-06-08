@@ -1,8 +1,14 @@
 package me.kleidukos.arsha.http;
 
+import java.io.IOException;
+
 public interface IHttpRequest{
 
-    String request(String link);
+    String getRequest(String link);
 
-    String request(HttpLinkBuilder builder);
+    String getRequest(GetHttpLinkBuilder builder);
+
+    String postRequest(PostHttpLinkBuilder builder);
+
+    String postRequest(PostHttpLink builder);
 }
