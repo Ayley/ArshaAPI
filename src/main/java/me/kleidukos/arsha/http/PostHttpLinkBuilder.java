@@ -1,6 +1,6 @@
 package me.kleidukos.arsha.http;
 
-import me.kleidukos.arsha.util.ApiVersion;
+import me.kleidukos.arsha.util.Api;
 import me.kleidukos.arsha.util.Language;
 import me.kleidukos.arsha.util.Region;
 import me.kleidukos.arsha.util.RequestType;
@@ -14,16 +14,27 @@ public class PostHttpLinkBuilder {
     private int subCategory = -1;
     private Language language = Language.DE;
 
-    public PostHttpLinkBuilder(ApiVersion version, Region region, RequestType type){
+    public PostHttpLinkBuilder(Api version, Region region, RequestType type){
         link = createBaseLink(version, region, type);
     }
 
-    private String createBaseLink(ApiVersion version, Region region, RequestType type){
+    public PostHttpLinkBuilder(Api version, RequestType type){
+        link = createBaseLink(version, type);
+    }
+
+    private String createBaseLink(Api version, Region region, RequestType type){
         String v = version.name().toLowerCase();
         String rg = region.name().toLowerCase();
         String t = type.getParameterName();
 
         return "https://api.arsha.io/" + v + "/" + rg + "/" + t;
+    }
+
+    private String createBaseLink(Api version, RequestType type){
+        String v = version.name().toLowerCase();
+        String t = type.getParameterName();
+
+        return "https://api.arsha.io/" + v + "/" + t;
     }
 
     public PostHttpLinkBuilder setId(int... id) {
