@@ -56,7 +56,7 @@ final class HttpRequest implements IHttpRequest {
 
                 EntityUtils.consume(entity);
 
-                return URLDecoder.decode(result, StandardCharsets.UTF_8);
+                return result;
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -107,7 +107,7 @@ final class HttpRequest implements IHttpRequest {
 
                 EntityUtils.consume(entity);
 
-                return URLDecoder.decode(result, StandardCharsets.UTF_8);
+                return result;
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -156,7 +156,7 @@ final class HttpRequest implements IHttpRequest {
 
                 EntityUtils.consume(entity);
 
-                return URLDecoder.decode(result, StandardCharsets.UTF_8);
+                return result;
             }
         } catch (IOException e) {
             e.printStackTrace();

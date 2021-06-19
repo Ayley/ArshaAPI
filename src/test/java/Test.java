@@ -32,12 +32,12 @@ public class Test {
 
         System.out.println(items);*/
 
-        PostHttpLinkBuilder postHttpLinkBuilder = new PostHttpLinkBuilder(Api.Util, RequestType.RECIPE_DATABASE);
+        GetHttpLinkBuilder postHttpLinkBuilder = new GetHttpLinkBuilder(Api.Util, RequestType.ITEM_DATABASE_DUMP);
 
 
-        postHttpLinkBuilder.setLanguage(Language.DE).setId(115);
+        postHttpLinkBuilder.setLanguage(Language.DE);
 
-        String result = arshaIO.getApi().postRequest(postHttpLinkBuilder);
+        String result = arshaIO.getApi().getRequest(postHttpLinkBuilder);
 
         System.out.println(result);
 
